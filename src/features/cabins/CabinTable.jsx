@@ -4,12 +4,14 @@ import { useCabins } from './useCabins';
 import Table from '../../ui/Table';
 import Menus from '../../ui/Menus';
 import { useSearchParams } from 'react-router-dom';
+import Empty from '../../ui/Empty';
 
 const CabinTable = () => {
   const { isLoading, cabins, error } = useCabins();
   const [searchParams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resourceName='cabins' />;
   if (error) {
     console.log(error);
     throw new Error('Cabin data can no be loaded');
