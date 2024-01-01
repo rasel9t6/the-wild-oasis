@@ -2,9 +2,9 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Dashboard from './pages/Dashboard';
-import Booking from './pages/Booking'
+import Booking from './pages/Booking';
 import Bookings from './pages/Bookings';
-import Checkin from './pages/Checkin'
+import Checkin from './pages/Checkin';
 import Cabins from './pages/Cabins';
 import Users from './pages/Users';
 import Settings from './pages/Settings';
@@ -14,6 +14,7 @@ import PageNotFound from './pages/PageNotFound';
 import GlobalStyles from './styles/GlobalStyles';
 import AppLayout from './ui/AppLayout';
 import { Toaster } from 'react-hot-toast';
+import ProtectedRoute from './ui/ProtectedRoute';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: { staleTime: 0 },
@@ -26,7 +27,13 @@ const App = () => {
       <GlobalStyles />
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route
               index
               element={
