@@ -7,6 +7,7 @@ import {
   HiOutlineHomeModern,
   HiOutlineUsers,
 } from 'react-icons/hi2';
+
 const NavList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -50,38 +51,62 @@ const StyledNavLink = styled(NavLink)`
   &.active:visited svg {
     color: var(--color-brand-600);
   }
+
+  /* Hide text when sidebar is closed */
+  ${({ isSidebarOpen }) =>
+    !isSidebarOpen &&
+    `
+    span {
+      display: none;
+    }
+  `}
 `;
 
-const MainNav = () => {
+const MainNav = ({ isSidebarOpen }) => {
   return (
     <nav>
       <NavList>
         <li>
-          <StyledNavLink to='/dashboard'>
+          <StyledNavLink
+            to='/dashboard'
+            isSidebarOpen={isSidebarOpen}
+          >
             <HiOutlineHome />
             <span>Home</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/bookings'>
+          <StyledNavLink
+            to='/bookings'
+            isSidebarOpen={isSidebarOpen}
+          >
             <HiOutlineCalendarDays />
             <span>Bookings</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/cabins'>
+          <StyledNavLink
+            to='/cabins'
+            isSidebarOpen={isSidebarOpen}
+          >
             <HiOutlineHomeModern />
             <span>Cabins</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/users'>
+          <StyledNavLink
+            to='/users'
+            isSidebarOpen={isSidebarOpen}
+          >
             <HiOutlineUsers />
             <span>Users</span>
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to='/settings'>
+          <StyledNavLink
+            to='/settings'
+            isSidebarOpen={isSidebarOpen}
+          >
             <HiOutlineCog6Tooth />
             <span>Settings</span>
           </StyledNavLink>

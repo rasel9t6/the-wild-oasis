@@ -2,11 +2,17 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
+import { useState } from 'react';
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 26rem 1fr;
+  grid-template-columns: ${({ isSidebarOpen }) =>
+    isSidebarOpen ? '26rem 1fr' : '12rem 1fr'};
   grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header header'
+    'sidebar main';
   height: 100vh;
+  transition: grid-template-columns 0.3s ease; 
 `;
 const Main = styled.main`
   background-color: var(--color-grey-50);
@@ -21,10 +27,18 @@ const Container = styled.div`
   gap: 3.2rem;
 `;
 const AppLayout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleToggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
   return (
-    <StyledAppLayout>
+    <StyledAppLayout isSidebarOpen={isSidebarOpen}>
       <Header />
-      <Sidebar />
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        handleToggleSidebar={handleToggleSidebar}
+      />
       <Main>
         <Container>
           <Outlet />
