@@ -1,8 +1,32 @@
-# React + Vite
+# The Wild Oasis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to The Wild Oasis, an online platform for managing bookings and accommodations in a natural and serene environment.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Credentials](#credentials)
+- [Demo](#demo)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+
+The Wild Oasis is a website project designed to streamline the management of cabins, bookings, check-in/out processes, and more. It provides a user-friendly interface for guests, administrators, and other stakeholders involved in the hospitality sector.
+
+## Features
+
+- **Authentication:** Secure user authentication system.
+- **Bookings:** Efficient booking management for cabins.
+- **Cabins:** Information about available cabins and their details.
+- **Check-in/Out:** Streamlined processes for guest check-in and check-out.
+- **Dashboard:** Comprehensive dashboard for administrators to monitor and manage the system.
+- **Guest:** Dedicated section for guest-related information.
+- **Settings:** Customizable settings to tailor the system according to specific needs.
+
+## Credentials
+
+- **Email:** test@gmail.com
+- **Password:** 12345678
+
+## Demo
+
+[The Wild Oasis](https://the-wild-oasis-rasel.vercel.app/)
